@@ -1,6 +1,7 @@
 # Credentials & secrets
 .env
 agents/main/agent/auth-profiles.json
+agents/main/agent/models.json
 identity/
 openclaw.json
 openclaw.json.*
