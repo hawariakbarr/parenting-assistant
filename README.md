@@ -44,8 +44,8 @@ openclaw/
 
 ## Channel
 
-- **WhatsApp** — Private group "Kalana" (`120363424585447477@g.us`)
-- **Allowed senders:** Hawari (+6289602896424) and Mila (+6281233705379)
+- **WhatsApp** — Private group "Kalana" (`xxxxxxxxxxxxx@g.us`)
+- **Allowed senders:** Me (+6289xxxxxx) and My Wife (+62812xxxxxxxx)
 - **Group policy:** Open (responds to all group messages)
 
 ## Gateway
