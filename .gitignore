@@ -13,13 +13,23 @@ workspace/USER.md
 # Runtime state
 delivery-queue/
 flows/registry.sqlite*
-cron/runs/
+cron/
 logs/
 sessions/
 backup_sessions_*/
 exec-approvals.json
 update-check.json
-devices/paired.json
+devices/
+subagents/
+tasks/
+memory/
+media/
+
+# Local tool settings (contains session-specific allowed commands)
+.claude/settings.local.json
+
+# Python virtualenv
+venv/
 
 # Temporary/generated files
 *.bak

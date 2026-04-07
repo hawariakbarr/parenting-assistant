@@ -24,7 +24,7 @@ fi
 
 # Set GEMINI_API_KEY if not already set
 if [ -z "$GEMINI_API_KEY" ]; then
-    export GEMINI_API_KEY="AIzaSyBGq8p_rLmtrNpbM6uFrb5-Ul-6HCiVAjU"
+    export GEMINI_API_KEY=""  # Set via environment variable or openclaw auth config
 fi
 
 # Convert to WAV if needed (for best results)
