@@ -1,6 +1,6 @@
 # Parenting Assistant with Openclaw🌸
 
-A personal AI-powered parenting assistant running as a WhatsApp bot. Built for Hawari & Mila to monitor baby Kalana's daily health and growth.
+A personal AI-powered parenting assistant running as a WhatsApp bot. Built for Paretns to monitor baby Kalana's daily health and growth.
 
 ## Setup
 
