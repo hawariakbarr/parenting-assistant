@@ -5,6 +5,7 @@ module.exports = {
       script: '/usr/lib/node_modules/openclaw/openclaw.mjs',
       interpreter: '/usr/bin/node',
       cwd: '/root/.openclaw',
+      env_file: '.env',
       env: {
         NODE_ENV: 'production',
       },

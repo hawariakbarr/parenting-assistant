@@ -2,6 +2,25 @@
 
 A personal AI-powered parenting assistant running as a WhatsApp bot. Built for Hawari & Mila to monitor baby Kalana's daily health and growth.
 
+## Setup
+
+```bash
+# 1. Copy and fill in your credentials
+cp .env.example .env
+nano .env
+
+# 2. Bootstrap openclaw config files from .env
+bash scripts/setup.sh
+
+# 3. Start the daemon
+pm2 start ecosystem.config.cjs && pm2 save
+
+# 4. Link WhatsApp (first time only)
+openclaw channels login --channel whatsapp --account default
+```
+
+> Re-run `bash scripts/setup.sh` any time you rotate API keys.
+
 ## What It Does
 
 - **Feed tracking** — Log DBF / ASIP / Sufor feeds, show next feed window, maintain daily counts
