@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "whatsapp-styler": {
+      "version": "1.0.0",
+      "installedAt": 1774618682406
+    },
+    "whatsapp-image-send": {
+      "version": "1.0.1",
+      "installedAt": 1774618741914
+    },
+    "whatsapp-chats": {
+      "version": "1.0.0",
+      "installedAt": 1774618802205
+    }
+  }
+}

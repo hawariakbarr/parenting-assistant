@@ -1,0 +1,29 @@
+# Credentials & secrets
+agents/main/agent/auth-profiles.json
+identity/
+openclaw.json
+openclaw.json.*
+
+# PII & personal data
+workspace/memory/
+workspace/MEMORY.md
+workspace/USER.md
+
+# Runtime state
+delivery-queue/
+flows/registry.sqlite*
+cron/runs/
+logs/
+sessions/
+backup_sessions_*/
+exec-approvals.json
+update-check.json
+devices/paired.json
+
+# Temporary/generated files
+*.bak
+*.bak.*
+*.recovered
+*.reconstructed
+*.clobbered.*
+*.before-reconstruction

@@ -1,0 +1,254 @@
+# MEMORY.md - Long-Term Memory
+
+## Keluarga Kalana
+
+### Anggota Keluarga
+- **Hawari Akbar** (+6289602896424) — Ayah
+- **Mil** (+6281233705379, @123325791629481) — Ibu
+- **Kalana** — Anak perempuan
+
+### Lokasi Rumah (Default)
+- **Kota:** Cimahi, Jawa Barat
+- **Kecamatan:** Cimahi Utara
+- **Kelurahan:** Citeureup
+- **Komplek:** Nusa Hijau
+- **Weather query:** `Cimahi` atau `Bandung` (nearest major city)
+
+### Data Kalana
+- Tanggal lahir: 9 Maret 2026
+- Berat lahir: 3200 gram
+- Panjang lahir: 49 cm
+- Jenis kelamin: Perempuan
+- **Berat 23 Mar 2026 (usia 14 hari):** 3375 gram (+175 gram dari lahir)
+- **Panjang 23 Mar 2026 (usia 14 hari):** 52 cm (+3 cm dari lahir)
+
+### Grup WhatsApp
+- Nama: Kalana
+- ID: 120363424585447477@g.us
+- Isi: Hawari, Mil, dan bot OpenClaw — private
+- Fungsi: Monitoring minum Kalana
+
+## Preferensi Komunikasi
+
+**LANGUAGE PREFERENCE: BAHASA INDONESIA (CASUAL STYLE)**
+- Default language: **Indonesian** (Bahasa Indonesia)
+- Style: **Casual, friendly, warm** — bukan formal
+- Boleh pakai singkatan common (kayak, udah, gimana, dll)
+- Tetap jelas dan mudah dipahami
+- Emoji: 1-2 per message max, purposeful
+- Mirror Ayah/Ibu's language kalau mereka switch ke English
+
+**REPLY FOOTER PREFERENCE (as of 26 Mar 2026):**
+- ✅ **ADD MODEL FOOTER TO EVERY REPLY**
+- Format: `--- model used: [model-name] ---`
+- Position: Bottom of message
+- Purpose: Full transparency on which AI model was used for routing
+- Request: Ayah (26 Mar 19:53 WIB)
+
+## Sistem Monitoring Minum
+
+### Format Input
+- `HH.MM asip XXml` → ASI perah
+- `HH.MM sufor XXml` → susu formula
+- `HH.MM dbf X menit` → direct breastfeeding
+- `pipis` atau `pp` → catat 1x pipis
+- `pup [warna]` → catat 1x BAB + optional warna
+- `Summary hari ini` → on-demand full recap
+
+### Target Pipis & BAB Harian (usia 0–4 minggu)
+- Pipis: minimal **6x/hari** (kurang → tanda dehidrasi ⚠️)
+- BAB: **3–4x/hari** atau setiap habis minum (normal untuk bayi ASI+formula mix)
+- Warning kalau pipis <6x atau tidak BAB >24 jam
+
+### Reminder System
+
+**Status:** ✅ WORKING (as of 24 Mar 2026)
+- **Method:** Adaptive reminders with manual trigger (Ayah/Ibu log → aku set reminders)
+- **Timezone:** UTC+7 (WIB) — conversion: WIB time - 7 hours = UTC
+- **Timing accuracy:** Tested & verified (all reminders fire correctly)
+- **Workflow:** 
+  1. Ayah/Ibu log feed → "Nenen X menit" / "Sufor Xml" / "ASIP Xml"
+  2. Aku confirm + calculate next feed window
+  3. Aku create adaptive cron reminders untuk next feed (T-25, T-10, T-5, actual)
+
+### Reminder per Sesi — Volume-Based (Growth Spurt Adaptive)
+
+**During normal feeding:**
+- Volume <30ml (partial) → T-20, T-10, T-5
+- Volume 30–50ml → T-25, T-15, T-5
+- Volume ≥50ml → T-30, T-15, T-5
+
+**During growth spurt (cluster feeding):**
+- Same timing applies, but interval shorter (expect feed every 20–60 min)
+- Adaptive system automatically adjusts based on feed volume
+
+### Target Harian — Dinamis per Usia & Berat
+
+**Current berat:** 3,375g (23 Mar 2026)  
+**Current usia:** 15–16 hari
+
+| Usia | Volume/kg/hari | Target total (3.375kg) | Frekuensi |
+|------|---------------|----------------------|-----------|
+| 0–2 minggu | 150–180ml | 506–608ml | 8–12x/hari |
+| 2–4 minggu | 150–180ml | 506–608ml | 8–10x/hari |
+| 1–2 bulan | 150–180ml | update berat | 7–9x/hari |
+| 2–4 bulan | 120–150ml | update berat | 6–8x/hari |
+| 4–6 bulan | 100–120ml | update berat | 5–7x/hari |
+
+**Current target:** 506–608ml/day, 8–12x/day
+
+## Weight History
+
+| Date | Weight (g) | Delta | Daily Gain | Status |
+|---|---|---|---|---|
+| 9 Mar 2026 | 3,200 | — | — | Birth weight |
+| 12 Mar 2026 | 3,050 | -150 | — | Normal newborn dip |
+| 20 Mar 2026 | 3,190 | +140 from nadir | — | Tracking |
+| 23 Mar 2026 | 3,375 | +325 from nadir | ~29.5 g/day | ✅ Great recovery |
+
+**Next weigh-in:** Sabtu, 28 Mar 2026 (check growth spurt progress)
+
+## Growth Spurt Event (24 Mar, Day 15)
+
+**Observations:**
+- Mulai hari ke-12: Susah tidur (padahal sebelumnya tidur sangat nyenyak)
+- Hari ke-15: Cluster feeding extreme (14 feeds dalam sehari!)
+- Feeding pattern: Every 20–60 min, small-medium volumes per session
+
+**Diagnosis:** Growth spurt + cluster feeding
+- **Timeline:** 2–3 minggu adalah peak period untuk first growth spurt
+- **Expected duration:** 3–7 hari (est. resolution by 28–29 Mar)
+- **Why cluster feeding:** Bayi need to maximize calorie intake untuk support growth
+
+**Day 15 (24 Mar) Results:**
+- **Feeds:** 14 sesi (3x DBF, 3x ASIP, 8x Sufor)
+- **Intake:** ~1010–1154ml (2x target!) ✅✅✅
+- **Diaper output:** 6x pipis ✅, 3x pup ✅ (hydration excellent!)
+- **Sleep:** Susah tidur per ekspektasi saat cluster feeding
+
+**Management recommendations:**
+- Respond cepat ke hunger cues (jangan tahan)
+- Minimal stimulation di antara feeds (keep environment calm)
+- Bergantian dengan partner supaya ada rest
+- Monitor output (if pipis <6x or pup missing, konsultasi dokter)
+
+## Feeding Preferences (observed)
+
+- Parents use a mix of DBF, ASIP, and Sufor — all are welcome.
+- Ibu is the primary feeder (DBF) during the day.
+- Ayah (Hawari) helps with night feeds (ASIP/Sufor).
+- **Parenting style:** Responsive, data-driven, trust-based
+- **Preference note:** Address Ibu as "Ibu" (not "Bunda")
+
+## Breast Pump Data (ASIP Reference)
+
+**Pump Model:** Momuum Electric Pump  
+**Observed output:** 40–80ml per session  
+**Session duration:** 15–30 minutes (both breasts)
+
+**Pump Performance:**
+- **Low range:** ~40ml in 15 min = ~2.7 ml/min per pump
+- **High range:** ~80ml in 30 min = ~2.7 ml/min per pump
+- **Average:** ~2.5–3.0 ml/min (pump extraction rate)
+
+**DBF Calibration:** 
+- Pump is less efficient than direct nursing (babies extract milk better)
+- DBF extraction rate likely **20–40% higher** than pump
+- Estimated DBF rate: **3.5–4.5 ml/min per breast** (accounting for efficiency differential)
+- **45-min DBF estimate (revised):** ~315–405ml (2 breasts combined)
+
+## Research Skills Activated
+
+- Enabled 24 Mar 2026 per Ayah's request
+- Can now search medical journals, WHO/IDAI guidelines for pediatric questions
+- Always cite sources + maintain "not a doctor" disclaimer
+- Emergency protocols: Always recommend "call 119 / ke IGD sekarang" for red flags
+
+## Smart Parenting Orchestrator Update (26 Mar 2026)
+
+**Issue:** Base model was Haiku, causing occasional hallucinations on feed/weight logs.
+
+**Solution (Opsi 1 - Applied):**
+- Raised parenting base complexity from 1 → 3
+- Added +2 bonus for data tracking logs
+- Result: Most Kal logs now route to Claude **Sonnet** (better accuracy)
+
+**Change details:**
+- v2.1.0 deployed to `/root/.openclaw/workspace/skills/smart-parenting-orchestrator/`
+- All routing logic + model-matrix updated
+- No config.apply needed (instruction-based routing)
+
+## Strict Input Parsing (Hallucination Prevention - 26 Mar 2026)
+
+**Root cause of hallucinations:**
+- Smaller models (Haiku) hallucinate connections between separate messages
+- Example: Ibu logged feed at 04:20, Ayah logged diaper later → I falsely connected them
+- Context window confusion + pattern overfitting
+
+**Solution (Applied to AGENTS.md):**
+1. **NEVER infer missing data** — Ask instead
+2. **NEVER assume timing** — Use NOW if not specified
+3. **NEVER guess volume/duration** — Ask for confirmation
+4. **NEVER connect separate messages** — Each is independent
+5. **ECHO BACK** — Confirm exact match before logging
+6. **ASK IF AMBIGUOUS** — Better to clarify than hallucinate
+
+**Result:** Even with Haiku, hallucinations are eliminated by **prompt structure** (not just model power)
+
+## API Keys & Config
+
+- **GEMINI_API_KEY:** Configured for summarize CLI (25 Mar 2026)
+
+## Session Reset Resilience (27 Mar 2026)
+
+**CRITICAL:** Sessions reset every 5 minutes. All memory must persist across resets.
+
+### Memory Loading Protocol (MANDATORY ON EVERY SESSION START)
+1. **ALWAYS load MEMORY.md first** — Contains all durable facts
+2. **THEN load today's memory file** — `memory/YYYY-MM-DD.md` for today's feeds/diapers/weights
+3. **THEN load yesterday's file** — `memory/YYYY-MM-DD.md` for context continuity
+4. **VERIFY:** Read back the current feed count + last feed time before processing new logs
+
+### Non-Negotiable Rules After Session Reset
+- ❌ NEVER trust session context — always re-read files
+- ✅ ALWAYS verify feed count from disk before confirming "today's count"
+- ✅ ALWAYS cross-check against daily memory file before logging new entry
+- ✅ ECHO BACK exactly what you logged (timestamp, type, volume, feed number)
+
+### Session Reset Workflow (Required Every 5 Min)
+```
+1. New message arrives
+2. Load MEMORY.md (parent info, preferences, rules)
+3. Load memory/YYYY-MM-DD.md (today's actual feeds)
+4. Load memory/YYYY-MM-DD-1.md (yesterday's context)
+5. Parse input strictly (ask if ambiguous)
+6. Cross-check against loaded file
+7. Update file with new entry (chronologically ordered)
+8. Create reminders (cron jobs persist across resets)
+9. Reply with confirmation (include feed count from loaded file)
+```
+
+## HTTP Server for Dashboard (27 Mar 2026)
+
+**Setup:**
+- HTTP server running on port 8000 in `/root/.openclaw/workspace/`
+- Serves: dashboard.html, dashboard.csv, dashboard-summary.txt
+- URL: http://167.99.73.86:8000/
+- Short URL: https://tinyurl.com/28tycwgh (redirects to dashboard.html)
+
+**Important note:**
+- Server only active while OpenClaw session is running
+- If server stops → must restart manually: `cd /root/.openclaw/workspace && python3 -m http.server 8000 > /tmp/http_server.log 2>&1 &`
+- Check status: `ps aux | grep http.server`
+- Test: `curl -s http://167.99.73.86:8000/dashboard.html | head -5`
+
+**Request (27 Mar 19:53 WIB):** Ayah asked to remember this note in memory for future reference.
+
+## Notes
+
+- OpenClaw activated 24 Mar 2026 for Kal (day 15 of life)
+- Bootstrap ritual: parents confirmed data, established logging format, enabled reminders
+- Key milestone: Adaptive reminder system WORKING with UTC conversion (verified 24 Mar 18:42 WIB)
+- **Session reset every 5 minutes:** Implemented 27 Mar 2026
+- **Add new observations, milestones, and preferences as they emerge**
+- **This file is LOADED at the start of every session** — it is the source of truth
