@@ -3,6 +3,7 @@ agents/main/agent/auth-profiles.json
 identity/
 openclaw.json
 openclaw.json.*
+credentials/
 
 # PII & personal data
 workspace/memory/
