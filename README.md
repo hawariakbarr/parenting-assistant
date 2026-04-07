@@ -2,8 +2,6 @@
 
 A personal AI assistant living in your WhatsApp group — tracks every feed, diaper, and weigh-in for your newborn, sends proactive reminders, and answers parenting questions in Bahasa Indonesia or English.
 
-Built for Hawari & Mila, parents of Kalana (Kal), born 9 March 2026.
-
 ---
 
 ## Features
