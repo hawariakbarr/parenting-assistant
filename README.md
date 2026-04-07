@@ -176,3 +176,76 @@ Response sent back to WhatsApp group
 Sessions reset every ~5 minutes. All data is persisted to disk so nothing is lost across resets:
 - **Long-term memory** — `workspace/MEMORY.md` (growth history, preferences)
 - **Daily logs** — `workspace/memory/YYYY-MM-DD.md` (feeds, diapers, weights per day)
+
+---
+
+## Architecture
+
+```
+~/.openclaw/
+├── openclaw.json                # Master config: agents, channels, gateway, plugins
+├── ecosystem.config.cjs         # PM2 service config (gateway on :18789)
+├── .env                         # Credentials (gitignored — copy from .env.example)
+├── scripts/setup.sh             # Bootstrap: reads .env → writes openclaw config files
+├── identity/                    # Device keypair (ED25519, gitignored)
+├── agents/main/
+│   ├── agent/                   # auth-profiles.json, models.json (gitignored)
+│   └── sessions/                # Conversation session JSONL logs
+├── workspace/                   # Agent persona, instructions, and memory
+│   ├── SOUL.md                  # Persona: tone, language, boundaries
+│   ├── AGENTS.md                # Operating instructions: parsing rules, logging protocol
+│   ├── TOOLS.md                 # Feed/weight/diaper format conventions
+│   ├── MEMORY.md                # Long-term durable memory (gitignored)
+│   ├── QUICK_START.md           # Session reset protocol
+│   ├── memory/                  # Daily logs: one YYYY-MM-DD.md per day (gitignored)
+│   └── skills/                  # Installed skill modules
+├── flows/                       # Flow registry (SQLite)
+├── cron/                        # Scheduled reminders (gitignored)
+├── delivery-queue/              # Outbound message queue (gitignored)
+└── logs/                        # System logs (gitignored)
+```
+
+---
+
+## Skills
+
+Skills are self-contained instruction modules in `workspace/skills/`. Each one activates automatically when a relevant message is received.
+
+| Skill | What it does |
+|-------|-------------|
+| `smart-parenting-orchestrator` | Routes every message to the best available AI model based on language (ID/EN), query complexity, and API health |
+| `baby-cry-detector` | Analyses baby cry audio (WAV/MP3/M4A/OGG) or text descriptions — classifies cry type and suggests response |
+| `baby-audio-transcribe` | Transcribes baby-related audio messages |
+| `whatsapp-image-send` | Sends growth charts and dashboard images to the group |
+| `whatsapp-styler` | Formats outbound messages for WhatsApp readability |
+| `url-shortener` | Shortens dashboard and report URLs before sending |
+
+---
+
+## Memory System
+
+The agent has no persistent session state — every session starts cold. It rebuilds context entirely from disk:
+
+```
+Session start (every ~5 min)
+    ↓
+1. Load workspace/MEMORY.md        → family info, preferences, growth history
+2. Load memory/YYYY-MM-DD.md       → today's feeds, diapers, weights
+3. Load memory/YYYY-MM-DD-1.md     → yesterday (context only)
+    ↓
+Process message → update disk → reply
+```
+
+**Critical rule:** Feed counts and totals always come from the file, never from session context. This prevents duplicates and hallucinated counts across resets.
+
+---
+
+## Channel & Gateway
+
+| Setting | Value |
+|---------|-------|
+| Channel | WhatsApp |
+| Group | Private group "Kalana" |
+| Allowed senders | Configurable via `WHATSAPP_ALLOWED_FROM` in `.env` |
+| Gateway port | `18789` (LAN-bound) |
+| Control UI | `http://localhost:18789` |
